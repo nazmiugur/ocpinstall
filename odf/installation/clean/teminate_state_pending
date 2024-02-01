@@ -1,0 +1,39 @@
+https://access.redhat.com/solutions/4165791
+
+Confirm which namespace needs to be removed with oc get namespace
+Create a temporary .json file: oc get namespace <failing namespace> -o json > tmp.json
+Edit the file with your favorite text editor vim tmp.json
+Remove the kubernetes value from the finalizers field and save the file.
+Your tmp.json file should look similar to this:
+######
+{
+  "apiVersion": "v1",
+  "kind": "Namespace",
+  "metadata": {
+      "annotations": {
+          "openshift.io/description": "",
+          "openshift.io/display-name": "",
+          "openshift.io/requester": "system:admin",
+          "openshift.io/sa.scc.mcs": "s0:c16,c15",
+          "openshift.io/sa.scc.supplemental-groups": "1000270000/10000",
+          "openshift.io/sa.scc.uid-range": "1000270000/10000"
+      },
+      "creationTimestamp": "2020-04-27T08:35:29Z",
+      "deletionTimestamp": "2020-04-27T09:07:22Z",
+      "name": "test",
+      "resourceVersion": "3480943",
+      "selfLink": "/api/v1/namespaces/test",
+      "uid": "0d2d425c-8862-11ea-bce9-fa163eb0b490"
+  },
+  "spec": {
+      "finalizers": [] //KUBERNETES shall be removed
+  },
+  "status": {
+      "phase": "Terminating"
+  }
+}
+#######
+oc proxy
+@ Seperate window
+curl -k -H "Content-Type: application/json" -X PUT --data-binary @tmp.json http://127.0.0.1:8001/api/v1/namespaces/${PROJECT_NAME}/finalize
+

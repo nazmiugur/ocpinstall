@@ -1,0 +1,20 @@
+# Herhangi best practice olmayan kurulum methodu icin cli'i kullanmak gerekiyor
+# 
+# burada create cluster adimina kadar olan diger adimlar(node labellama disinda) UI ile standard ODF kurulumunun  muadili
+# Node label'lama kisminda ise, operator her halikurda minimum 3 adet node'da cluster.ocs.openshift.io/openshift-storage='' label'ini ariyor
+# ancak burada node'un tipine veya disk sayisina bakmiyor. Bu nedenle aslinda odf de kullanmayacagimiz ve OS diski bulunmayan herhangi node'u 
+# bu label ile labellamak gerekiyor.
+# 
+#
+# cluster tanimlamalarinda 1 veya 2 replike yapmak, test ortami icin daha makul.
+# pool size override islemini cluster tanimindan once yapmak gerekiyor
+# cluster ayaga kalktiktan sonra block pool u ve rbd icin storage class i manual yaratmak gerekiyor.
+# bunun sebebi default'da disk tipi olarak ssd yapmasi(bizde hdd idi)
+# wait cluster adimi disinda butun adimlar sirasiyla uygulandiginda cluster'i tanimlamak mumkun
+#
+
+
+# kurulum ile ilgili degil ama yan bilgi: 
+mixed media: knowledge base article https://access.redhat.com/articles/5692201
+# ayrica buradaki kb article'inin sonunda odf uninstall methodu mevcut
+#

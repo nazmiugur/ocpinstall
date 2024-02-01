@@ -1,0 +1,33 @@
+
+
+
+#####Sample output to be expected
+oc get pods -n openshift-storage
+
+NAME                                              READY   STATUS            RESTARTS        AGE
+csi-addons-controller-manager-7cc547c946-424dq    2/2     Running           4 (71s ago)     16m
+csi-cephfsplugin-d7hxx                            2/2     Running           0               13m
+csi-cephfsplugin-lffm6                            2/2     Running           0               13m
+csi-cephfsplugin-m6qgj                            2/2     Running           0               13m
+csi-cephfsplugin-provisioner-f77b9fc56-kr99l	  5/5     Running           0               13m
+csi-cephfsplugin-provisioner-f77b9fc56-snz8s	  5/5     Running           0               13m
+csi-cephfsplugin-srkzm                            2/2     Running           0               13m
+csi-cephfsplugin-v2g2h                            2/2     Running           0               13m
+csi-cephfsplugin-wmwcf                            2/2     Running           0               13m
+csi-rbdplugin-b7mf7                               3/3     Running           0               13m
+csi-rbdplugin-c89wr                               3/3     Running           0               13m
+csi-rbdplugin-d2hjl                               3/3     Running           0               13m
+csi-rbdplugin-gd6wk                               3/3     Running           0               13m
+csi-rbdplugin-pmcj6                               3/3     Running           0               13m
+csi-rbdplugin-provisioner-598744f586-sz2lr        6/6     Running           0               13m
+csi-rbdplugin-provisioner-598744f586-ztfvq        6/6     Running           1 (8m50s ago)   13m
+csi-rbdplugin-wj9lq                               3/3     Running           0               13m
+noobaa-operator-7964d9cc7-8n947                   2/2     Running           0               17m
+ocs-metrics-exporter-5756f84954-f96t6             1/1     Running           0               17m
+ocs-operator-75d47878c6-74xf5                     1/1     Running           4 (60s ago)     17m
+odf-console-845fb59568-qrnwh                      1/1     Running           0               17m
+odf-operator-controller-manager-b878c8588-xwn2r   2/2     Running           4 (2m17s ago)   17m
+rook-ceph-detect-version-cg84g                    0/1     PodInitializing   0               5s
+rook-ceph-operator-6c6cb697bb-vjv97               1/1     Running           0               13m
+
+

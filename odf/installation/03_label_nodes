@@ -1,0 +1,12 @@
+#### 'mstr' ile baslayan worker rol'lu node'larin disk yapilarinin odfe
+#### uygun oldugunu varsayiyoruz
+# Standard kurulum icin:
+#
+for node in $(oc get nodes -o name | grep mstr | sed "s/node\///g"); do
+oc label node $node cluster.ocs.openshift.io/openshift-storage='';
+done
+
+#### 2 Node'lu kurulum icin de minimum 3 node'un cluster.ocs.openshift.io/openshift-storage= labelina sahip olmasi gerekiyor
+#### dolayisiyla bu sorunu asmak icin gercekten uzerinde disk olan ve odf icin kullanacagimiz
+#### 2 node'u bu sekile labelliyoruz
+#### sonra uzerinde os disk harici bir disk olmayan herhangi worker node 'a bu label'i veriyoruz.

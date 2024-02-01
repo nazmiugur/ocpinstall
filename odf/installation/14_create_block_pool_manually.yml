@@ -1,0 +1,20 @@
+apiVersion: ceph.rook.io/v1
+kind: CephBlockPool
+metadata:
+  name: ceph-rbd-blockpool
+  namespace: openshift-storage
+spec:
+  compressionMode: aggressive
+  erasureCoded:
+    codingChunks: 0
+    dataChunks: 0
+  failureDomain: host
+  mirroring: {}
+  parameters:
+    compression_mode: aggressive
+  quotas: {}
+  replicated:
+    size: 2
+  statusCheck:
+    mirror: {}
+

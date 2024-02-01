@@ -1,0 +1,72 @@
+{
+    "apiVersion": "v1",
+    "kind": "Namespace",
+    "metadata": {
+        "annotations": {
+            "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"v1\",\"kind\":\"Namespace\",\"metadata\":{\"annotations\":{},\"labels\":{\"openshift.io/cluster-monitoring\":\"true\"},\"name\":\"openshift-storage\"},\"spec\":{}}\n",
+            "openshift.io/sa.scc.mcs": "s0:c19,c4",
+            "openshift.io/sa.scc.supplemental-groups": "1000350000/10000",
+            "openshift.io/sa.scc.uid-range": "1000350000/10000",
+            "reclaimspace.csiaddons.openshift.io/schedule": "@weekly"
+        },
+        "creationTimestamp": "2024-01-31T13:21:59Z",
+        "deletionTimestamp": "2024-01-31T13:33:58Z",
+        "labels": {
+            "kubernetes.io/metadata.name": "openshift-storage",
+            "olm.operatorgroup.uid/6604f998-517b-4bbc-bdde-9119d7a45c77": "",
+            "openshift.io/cluster-monitoring": "true",
+            "pod-security.kubernetes.io/audit": "privileged",
+            "pod-security.kubernetes.io/audit-version": "v1.24",
+            "pod-security.kubernetes.io/warn": "privileged",
+            "pod-security.kubernetes.io/warn-version": "v1.24",
+            "security.openshift.io/scc.podSecurityLabelSync": "true"
+        },
+        "name": "openshift-storage",
+        "resourceVersion": "23937153",
+        "uid": "f44c8360-b624-4937-a998-00e75b32a3ec"
+    },
+    "spec": {
+        "finalizers": [
+        ]
+    },
+    "status": {
+        "conditions": [
+            {
+                "lastTransitionTime": "2024-01-31T13:34:05Z",
+                "message": "Discovery failed for some groups, 3 failing: unable to retrieve the complete list of server APIs: subresources.kubevirt.io/v1: stale GroupVersion discovery: subresources.kubevirt.io/v1, subresources.kubevirt.io/v1alpha3: stale GroupVersion discovery: subresources.kubevirt.io/v1alpha3, upload.cdi.kubevirt.io/v1beta1: stale GroupVersion discovery: upload.cdi.kubevirt.io/v1beta1",
+                "reason": "DiscoveryFailed",
+                "status": "True",
+                "type": "NamespaceDeletionDiscoveryFailure"
+            },
+            {
+                "lastTransitionTime": "2024-01-31T13:34:06Z",
+                "message": "All legacy kube types successfully parsed",
+                "reason": "ParsedGroupVersions",
+                "status": "False",
+                "type": "NamespaceDeletionGroupVersionParsingFailure"
+            },
+            {
+                "lastTransitionTime": "2024-01-31T13:34:06Z",
+                "message": "Failed to delete all resource types, 1 remaining: unexpected items still remain in namespace: openshift-storage for gvr: /v1, Resource=pods",
+                "reason": "ContentDeletionFailed",
+                "status": "True",
+                "type": "NamespaceDeletionContentFailure"
+            },
+            {
+                "lastTransitionTime": "2024-01-31T13:34:06Z",
+                "message": "Some resources are remaining: pods. has 1 resource instances",
+                "reason": "SomeResourcesRemain",
+                "status": "True",
+                "type": "NamespaceContentRemaining"
+            },
+            {
+                "lastTransitionTime": "2024-01-31T13:34:06Z",
+                "message": "All content-preserving finalizers finished",
+                "reason": "ContentHasNoFinalizers",
+                "status": "False",
+                "type": "NamespaceFinalizersRemaining"
+            }
+        ],
+        "phase": "Terminating"
+    }
+}

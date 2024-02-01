@@ -1,0 +1,8 @@
+###@odf node'larinda asagidaki prosedur takip edilecek
+sudo rm -rf /var/lib/rook/
+sudo rm -rf /mnt/local-storage/*
+###DIKKAT sdb-sde isletim sistemi olmayan diskler olmak zorunda
+###isletim sistemi sda disinda bir diskte de olabilir
+for dsk in {b..e}; do sudo sgdisk --zap /dev/sd$dsk; done
+for dsk in {b..e}; do sudo dd if=/dev/zero of=/dev/sd$dsk bs=2048000 count=1; done
+
